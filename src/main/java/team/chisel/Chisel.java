@@ -39,7 +39,6 @@ import team.chisel.block.BlockCarvable;
 import team.chisel.carving.Carving;
 import team.chisel.compat.Compatibility;
 import team.chisel.compat.IMCHandler;
-import team.chisel.compat.fmp.FMPCompat;
 import team.chisel.config.Configurations;
 import team.chisel.entity.EntityChiselSnowman;
 import team.chisel.init.ChiselBlocks;
@@ -157,9 +156,6 @@ public class Chisel {
         Statistics.init();
         PacketHandler.init();
         ChiselController.INSTANCE.preInit();
-        if (Loader.isModLoaded("ForgeMultipart")) {
-            new FMPCompat().init();
-        }
         proxy.preInit();
     }
 

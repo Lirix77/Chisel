@@ -16,16 +16,12 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.cricketcraft.chisel.api.ChiselAPIProps;
-import com.cricketcraft.chisel.api.FMPIMC;
 import com.cricketcraft.chisel.api.rendering.TextureType;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import team.chisel.block.BlockCarvableGlowie;
-import team.chisel.compat.fmp.FMPCompat;
 import team.chisel.ctmlib.ISubmapManager;
 
 public class CarvableHelper {
@@ -189,17 +185,6 @@ public class CarvableHelper {
 
         Block block = info.getVariation()
             .getBlock();
-
-        if (Loader.isModLoaded("ForgeMultipart") && block instanceof BlockCarvableGlowie) {
-            FMPCompat.registerGlowieVariation(info, block);
-        } else {
-            if (block.renderAsNormalBlock() || block.isOpaqueCube() || block.isNormalCube()) {
-                FMPIMC.registerFMP(
-                    block,
-                    info.getVariation()
-                        .getBlockMeta());
-            }
-        }
 
         if (forbidChiseling) return;
 
